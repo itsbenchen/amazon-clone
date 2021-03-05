@@ -1,4 +1,10 @@
-This is an Amazon clone that's made with ReactJS with the use of Stripe, Axios, and Moment APIs. Google Firebase is used to help with the backend and deployment testing. 
+This is an Amazon clone that's made with ReactJS with the use of Stripe, Axios, and Moment libraries. NodeJS and Google Firebase is used to help with the backend and deployment testing. 
+
+Stripe was used for building payment flows
+Axios to help with the HTTP requests
+Moment library to format dates
+NodeJS for the backend server
+Firebase for the real-time database usage
 
 npm installs (/amazon-clone):
     npm i @stripe/stripe-js
