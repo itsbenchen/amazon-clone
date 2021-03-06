@@ -1,17 +1,38 @@
 import React from "react";
 import "./Home.css";
 import Product from "./Product";
+import Carousel from 'react-bootstrap/Carousel';
+
 
 function Home() {
     return (
         <div className="home">
             <div className="home_container">
-                <img 
-                    className="home_image" 
-                    src="https://images-na.ssl-images-amazon.com/images/G/01/kindle/journeys/YTY0ZDZiOWMt/YTY0ZDZiOWMt-NzdiZjY1N2Mt-w1500._CB660844434_.jpg" 
-                    alt="Check in on parents and loved ones with Alexa. Learn about Care Hub" 
-                />
+                <Carousel className="carousel" indicators={false} interval={6000} keyboard={false} pauseOnHover={true}>
+                    <Carousel.Item>
+                        <img 
+                            className="home_image" 
+                            src="https://images-na.ssl-images-amazon.com/images/G/01/kindle/journeys/YTY0ZDZiOWMt/YTY0ZDZiOWMt-NzdiZjY1N2Mt-w1500._CB660844434_.jpg" 
+                            alt="Slide 1" 
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img 
+                            className="home_image" 
+                            src="https://images-na.ssl-images-amazon.com/images/G/01/prime/2021_GTM/US2021D1155_GW_DesktopHero_1500x600_EN._CB659228198_.jpg" 
+                            alt="Slide 2" 
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img 
+                            className="home_image" 
+                            src="https://images-na.ssl-images-amazon.com/images/G/01/kindle/journeys/Nzg3NzIxZDct/Nzg3NzIxZDct-OTgzNWJkZmYt-w1500._CB412095319_.jpg" 
+                            alt="Slide 3" 
+                        />
+                    </Carousel.Item>
 
+                </Carousel>
+ 
                 <div className="home_row">
                     <Product 
                         id="1"
@@ -63,7 +84,6 @@ function Home() {
                         image="https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg"
                     />
                 </div>
-                
             </div>
         </div>
     );

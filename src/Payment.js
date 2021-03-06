@@ -5,12 +5,12 @@ import CheckoutProduct from "./CheckoutProduct";
 import {Link, useHistory} from "react-router-dom";
 import {CardElement, useStripe, useElements} from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
-import { getBasketTotal } from "./reducer";
+import { getCartTotal } from "./reducer";
 import axios from "./axios";
 import {database} from "./firebase";
 
 function Payment() {
-    const [{basket, user}, dispatch] = useStateValue();
+    const [{cart, user}, dispatch] = useStateValue();
     const history = useHistory();
 
     // Hooks
@@ -26,7 +26,7 @@ function Payment() {
     const [clientSecret, setClientSecret] = useState(true);
 
     useEffect(() => {
-        /* Generates a new stripe secret when the basket changes IMPORTANT if user decides to remove stuff from basket */
+        /* Generates a new stripe secret when the cart changes IMPORTANT if user decides to remove stuff from cart */
 
         // Generate special stripe secret that allows us to charge a customer
         const getClientSecret = async () => {
@@ -34,14 +34,14 @@ function Payment() {
             const response = await axios({
               method: "post",
               // Stripe expects the total in a currencies subunits; 1000 -> would mean $10 so multiplying by 100 is necessary (2 decimal places)
-              url: `/payments/create?total=${getBasketTotal(basket) * 100}` // Backticks; not ' or "
+              url: `/payments/create?total=${getCartTotal(cart) * 100}` // Backticks; not ' or "
             });
             setClientSecret(response.data.clientSecret);
         }
 
         getClientSecret();
 
-    }, [basket])
+    }, [cart])
 
     console.log("THE SECRET IS >>> ", clientSecret);
 
@@ -63,7 +63,7 @@ function Payment() {
                     .collection("orders")
                     .doc(paymentIntent.id)
                     .set({
-                        basket: basket,
+                        cart: cart,
                         amount: paymentIntent.amount,
                         created: paymentIntent.created // Timestamp for when order was made
                     })
@@ -73,7 +73,7 @@ function Payment() {
                 setProcessing(false);
                 
                 dispatch({
-                    type: "EMPTY_BASKET"
+                    type: "EMPTY_CART"
                 })
 
                 history.replace("/orders"); // Swap with the /payment page (we don't want user to go back to payment page)
@@ -92,7 +92,7 @@ function Payment() {
             <div className="payment_container">
 
                 <h1>
-                    Checkout (<Link to="/checkout">{basket?.length} items</Link>)
+                    Checkout (<Link to="/checkout">{cart?.length} items</Link>)
                 </h1>
 
                 {/* Payment - delivery address */}
@@ -115,7 +115,7 @@ function Payment() {
                         <h3>Review items and delivery</h3> 
                     </div>
                     <div className="payment_items">
-                        {basket.map(item => (
+                        {cart.map(item => (
                             <CheckoutProduct
                                 id={item.id}
                                 title={item.title}
@@ -144,7 +144,7 @@ function Payment() {
                                         <h3>Order Total: {value}</h3>
                                     )}
                                     decimalScale={2}
-                                    value={getBasketTotal(basket)}
+                                    value={getCartTotal(cart)}
                                     displayType={"text"}
                                     thousandSeparator={true}
                                     prefix={"$"}

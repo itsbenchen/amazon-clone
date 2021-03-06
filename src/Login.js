@@ -13,20 +13,9 @@ function Login() {
         auth.signInWithEmailAndPassword(email, password)
             .then((auth) => {   // If success, returns a promise
                 history.push("/")
+                alert("You've successfully logged in.");
             })
             .catch(error =>alert(error.message)); // Fails and throws an error
-    };
-
-    const register = e => {
-        e.preventDefault(); // Prevents page from reloading due to <form> tag
-        auth.createUserWithEmailAndPassword(email, password)
-            .then((auth) => {
-                // if it successfully created a new user with email and password
-                if (auth) {
-                    history.push("/")
-                }
-            })
-            .catch(error => alert(error.message));
     };
 
     return (
@@ -51,7 +40,9 @@ function Login() {
                     By signing-in you agree to the Conditions of Use & Sale. Please see our privacy notice, our Cookies Notice, and our Interest-Based Ad Notice.
                 </p>
 
-                <button onClick={register} className="login_registerButton">Create your Amazon Account</button>
+                <Link to="/register">
+                    <button className="login_registerButton">Create your Amazon Account</button>
+                </Link>
             </div>
         </div>
     )

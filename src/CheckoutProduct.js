@@ -4,12 +4,12 @@ import {useStateValue} from "./StateProvider";
 
 function CheckoutProduct({id, image, title, price, rating, hideButton}) {
     
-    const [{basket}, dispatch] = useStateValue();
+    const [{cart}, dispatch] = useStateValue();
 
-    const removeFromBasket = () => {
-        // Remove the item from basket
+    const removeFromCart = () => {
+        // Remove the item from cart
         dispatch({
-            type: "REMOVE_FROM_BASKET",
+            type: "REMOVE_FROM_CART",
             id: id
         });
     };
@@ -34,7 +34,7 @@ function CheckoutProduct({id, image, title, price, rating, hideButton}) {
                         ))}
                 </div>
 
-                {!hideButton && (<button onClick={removeFromBasket}>Remove from Basket</button>)}
+                {!hideButton && (<button onClick={removeFromCart}>Remove from Cart</button>)}
 
             </div>
 

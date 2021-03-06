@@ -6,16 +6,27 @@
     max-width: 1500px;
 }
 
+.home_container {
+    max-width: 1200px;
+}
+
+.carousel {
+    display: block;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -150px;
+}
+
 .home_image {
     width: 100%;
-    z-index: -1;
-    margin-bottom: -150px;
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0.5));
+    height: 100%;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0));
 }
 
 .home_row {  
-    display: flex; 
+    display: flex;
     z-index: 1; 
-    margin-left: 5px;  
+    margin-left: 5px;
     margin-right: 5px;
 }
