@@ -11,8 +11,9 @@
 .header_logo {
     width: 100px;
     object-fit: contain;
-    margin: 0 20px;
-    margin-top: 18px;
+    margin: 0px 20px;
+    margin-top: 10px;
+    border: 1px solid #131921;
 }
 
 .header_search {
@@ -49,11 +50,10 @@
 }
 
 .header_optionCart {
-    margin-top: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 8px 10px;
     display: flex;
     align-items: center;
+    border: 1px solid #131921;
     color: white;
 }
 
@@ -72,20 +72,16 @@
     flex-direction: column;
     margin-left: 10px;
     margin-right: 10px;
+    border: 1px solid #131921;
     color: white;
     white-space: nowrap;
+    position: relative;
 }
 
-button.header_option, button.header_optionMenu {
+button.header_option, .header_optionMenu {
     background-color: #232F3E;
-    border: none;
+    border: 1px solid #232F3E;
 }
-
-.header_option:hover {
-    border: 1px solid white;
-}
-
-
 
 .header_bottom {
     height: 39px;
@@ -104,4 +100,8 @@ button.header_option, button.header_optionMenu {
     display: flex;
     align-items: center;
     color: white;
+}
+
+.header_option:hover, .header_optionMenu:hover, .header_optionCart:hover, .header_logo:hover{
+    border: 1px solid white;
 }

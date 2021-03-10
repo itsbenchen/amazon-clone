@@ -17,9 +17,9 @@ app.use(express.json());
 app.get("/", (request, response) => response.status(200).send("You've successfully connected!"));
 
     // Refer to url in Payment.js: /payments/create?total
-app.post("/payments/create", async (request, response) => {
+app.post("/payments/create", async (request, response) =>{
     const total = request.query.total; // ?total part
-    console.log("Payment Request Received for this amount >>> ", total);
+    console.log("Payment Request Received for this amount >> ", total);
 
     const paymentIntent = await stripe.paymentIntents.create({
         amount: total, // Subunits of the currency
