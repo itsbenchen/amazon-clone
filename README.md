@@ -2,24 +2,18 @@
 
 This is an Amazon clone that's made with ReactJS with the use of React-Bootstrap, Stripe, Axios, and Moment libraries. NodeJS and Google Firebase is used to help with the backend and deployment testing.
 
-Stripe was used for building payment flows
-Axios to help with the HTTP requests
-Moment library to format dates
-NodeJS for the backend server
-Firebase for the real-time database usage
-
 npm installs (/amazon-clone):
-    npm i react-router-dom
-    npm i @stripe/stripe-js
-    npm i @stripe/react-stripe-js
-    npm i axios
-    npm i moment
-    npm i react-bootstrap
+ - npm i react-router-dom
+ - npm i @stripe/stripe-js
+ - npm i @stripe/react-stripe-js
+ - npm i axios
+ - npm i moment
+ - npm i react-bootstrap
 
 npm installs (/amazon-clone/functions):
-    npm i stripe
-    npm i express
-    nmp i cors
+ - npm i stripe
+ - npm i express
+ - nmp i cors
 
 The app also has core features that allows sites like Amazon to have a full E-Commerce functionality.
 
