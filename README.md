@@ -13,11 +13,14 @@ npm installs (/amazon-clone):
     npm i @stripe/stripe-js
     npm i @stripe/react-stripe-js
     npm i axios
-    npm install moment
+    npm i moment
     npm i react-bootstrap
 
 npm installs (/amazon-clone/functions):
-    npm install stripe
+    npm i stripe
+    npm i express
+    nmp i cors
+
 
 The app also has core features that allows sites like Amazon to have a full E-Commerce functionality.
 
