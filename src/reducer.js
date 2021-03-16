@@ -19,7 +19,7 @@ const reducer = (state, action) => {
                 newCart.splice(index, 1);
             }
             else {
-                console.warn("Can't remove product (id: ${action.id}) as its not in the cart!");
+                console.warn(`Can't remove product (id: ${action.id}) as it's not in the cart!`);
             }
             return {...state, cart: newCart};
         case "EMPTY_CART":

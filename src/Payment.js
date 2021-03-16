@@ -78,7 +78,6 @@ function Payment() {
 
                 history.replace("/orders"); // Swap with the /payment page (we don't want user to go back to payment page)
             })
-
     }
 
     const handleChange = (event) => {

@@ -22,30 +22,29 @@ const promise = loadStripe(
 );
 
 function App() {
-  const [{}, dispatch] = useStateValue();
+  const [state, dispatch] = useStateValue();
 
   useEffect(() => {
     // Runs once when the app component loads
     auth.onAuthStateChanged((authUser) => {
       console.log("THE USER IS >>> ", authUser);
     
-    if (authUser) {
-      // User is logged in
-      dispatch({
-        type: "SET_USER",
-        user: authUser
+      if (authUser) {
+        // User is logged in
+        dispatch({
+          type: "SET_USER",
+          user: authUser
+        });
+      }
+      else {
+        // User is logged out
+        dispatch({
+          type: "SET_USER",
+          user: null
+        });
+      }
+      
       });
-    }
-    else {
-      // User is logged out
-      dispatch({
-        type: "SET_USER",
-        user: null
-      });
-    }
-    
-    });
-
   }, []);
 
   return (
