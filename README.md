@@ -1,6 +1,6 @@
 # Amazon Clone
 
-This is an Amazon clone that's made with ReactJS with the use of React-Bootstrap, Stripe, Axios, and Moment libraries. NodeJS and Google Firebase is used to help with the backend and deployment testing. 
+This is an Amazon clone that's made with ReactJS with the use of React-Bootstrap, Stripe, Axios, Moment, and Express libraries. Google Firebase is used to help with the backend and deployment testing. 
 
 Here is a previous version of the deployed site: https://clone-f7a06.firebaseapp.com/
 

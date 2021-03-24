@@ -17,9 +17,7 @@ import {loadStripe} from "@stripe/stripe-js";
 import {Elements} from "@stripe/react-stripe-js";
 
 // Public API key from Stripe 
-const promise = loadStripe(
-  "pk_test_51IR7VZCm33n4epwhXAT3YGWBXkVOtXkMX1ZyFzVYBYxsi8F0SQ7F6RZCRk1YlCifiL8wUvkeg6DveeJZPgougbcE00Fu8zLDAp"
-);
+const promise = loadStripe("pk_test_51IR7VZCm33n4epwhXAT3YGWBXkVOtXkMX1ZyFzVYBYxsi8F0SQ7F6RZCRk1YlCifiL8wUvkeg6DveeJZPgougbcE00Fu8zLDAp");
 
 function App() {
   const [state, dispatch] = useStateValue();
@@ -27,8 +25,6 @@ function App() {
   useEffect(() => {
     // Runs once when the app component loads
     auth.onAuthStateChanged((authUser) => {
-      console.log("THE USER IS >>> ", authUser);
-    
       if (authUser) {
         // User is logged in
         dispatch({
